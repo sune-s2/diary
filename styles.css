@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@400;600&display=swap');
+@import "compass/css3";
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background: url('https://imgcdn.stablediffusionweb.com/2024/10/5/2588f655-a0f7-4afb-a515-f82476a54d97.jpg'), url('https://i.pinimg.com/originals/d8/fc/5d/d8fc5db73d1cfa61a962e28b4710acc7.jpg') no-repeat top center fixed;
+  background-size: 60%, 45%; /* Ensures the image covers the entire screen */
+  background-position: left top, right center;
+  
+  background-repeat: no-repeat, no-repeat;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 1200px) {
+    body {
+      background-size: 50vh, 35vh; /* Resize images for smaller screens */
+      background-position: left top, right center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      background-size: 40vh, 30vh; /* Further reduce image size */
+      background-position: left top, right center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      background-size: 35vh, 25vh; /* Adjust for very small screens */
+      background-position: left center, right center;
+    }
+  }
+
+.container {
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.book-wrapper {
+  position: relative;
+  margin: 3% auto;
+  width: 720px;
+  border: 2px solid #8c6b4f;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: #8c6b4f;
+  background-image: url('https://i.pinimg.com/originals/2b/92/d2/2b92d2a51428d7f178a3b198d0bc1933.jpg'); /* Leather texture */
+}
+
+.book-cover img {
+  display: none; /* We are now replacing the cover with a CSS background. */
+}
+
+.pages-container {
+  position: relative;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 15px;
+  background: linear-gradient(to bottom, #fdfcf9, #fefdfb);
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.pages {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.pages [class^="page-num-"] {
+  background: #fffef9;
+  position: relative;
+  flex: 1;
+  border-radius: 0;
+  border: 1px solid #e6e3de;
+  background-image: url('https://i.pinimg.com/originals/2e/6c/2c/2e6c2c54f7d2d5b0f4a1e3f8b2f807da.jpg'); /* Subtle paper texture */
+}
+
+.pages:after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background: #a48b72;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.pages-content {
+  text-align: left;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: table;
+  padding: 30px;
+}
+
+.content-inner {
+  display: table-cell;
+  vertical-align: top;
+  position: relative;
+  padding: 10px;
+}
+
+.content-inner h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+  font-weight: 700;
+  color: #6b4e31;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.content-inner .text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555555;
+}
+
+.page-num-1 .pages-background {
+  background: url('https://i.pinimg.com/564x/f4/24/0b/f4240b1552232b264d672f1f372c5b6e.jpg') no-repeat center center / cover;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.diary-title {
+    position: relative;
+    font-size: 3.5rem; /* Bigger title */
+    text-align: center;
+    color: transparent; /* Make text transparent for gradient */
+    background: linear-gradient(90deg, #ff7eb3, #ff758c, #ffd700, #ff758c, #ff7eb3);
+    background-size: 300%;
+    background-clip: text; /* Clip the gradient to text */
+    -webkit-background-clip: text;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+    animation: gradient-flow 6s ease-in-out infinite, text-scale 2s infinite alternate;
+    padding: 10px 20px;
+    border-radius: 10px;
+    z-index: 2;
+    margin: 20px auto;
+    max-width: fit-content;
+    transform: scale(1); /* For scaling animation */
+  }
+  
+  .diary-title h1 {
+    margin: 0; /* Remove default margin */
+    padding: 0;
+  }
+  
+/* Gradient Animation */
+@keyframes gradient-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Text Scaling Animation */
+  @keyframes text-scale {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
+  
+  .glitch {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+    animation: glitch 725ms infinite;
+    text-align: center;
+  }
+  
+  .glitch span {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .glitch span:first-child {
+    animation: glitch 500ms infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    transform: translate(-0.04em, -0.03em);
+    opacity: 0.75;
+  }
+  
+  .glitch span:last-child {
+    animation: glitch 375ms infinite;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    transform: translate(0.04em, 0.03em);
+    opacity: 0.75;
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+        0.025em 0.04em 0 #fffc00;
+    }
+    15% {
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+        0.025em 0.04em 0 #fffc00;
+    }
+    16% {
+      text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+        -0.05em -0.05em 0 #fffc00;
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+        -0.05em -0.05em 0 #fffc00;
+    }
+    50% {
+      text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+        0 -0.04em 0 #fffc00;
+    }
+    99% {
+      text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+        0 -0.04em 0 #fffc00;
+    }
+    100% {
+      text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+        -0.04em -0.025em 0 #fffc00;
+    }
+  }
